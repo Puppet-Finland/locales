@@ -35,10 +35,14 @@ class locales
 )
 {
 
+# Rationale for this is explained in init.pp of the sshd module
+if hiera('manage_locales') != 'false' {
+
     # We can use the same basic logic for all(?) Debian derivatives
     if $::osfamily == 'Debian' {
         class { 'locales::config':
             locales => $locales,
         }
     }
+}
 }

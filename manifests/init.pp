@@ -13,21 +13,21 @@
 #
 # == Examples
 #
-# class { 'locales':
-#   locales => ['en_US.UTF-8 UTF-8',
-#               'fi_FI.UTF-8 UTF-8',
-#               'it_IT.UTF-8 UTF-8'],
+#   class { 'locales':
+#       locales => ['en_US.UTF-8 UTF-8',
+#                   'fi_FI.UTF-8 UTF-8',
+#                   'it_IT.UTF-8 UTF-8'],
 #   }
 #
 # == Authors
 #
 # Samuli Seppänen <samuli.seppanen@gmail.com>
+#
 # Samuli Seppänen <samuli@openvpn.net>
 #
 # == License
 #
-# BSD-lisence
-# See file LICENSE for details
+# BSD-license. See file LICENSE for details.
 #
 class locales
 (

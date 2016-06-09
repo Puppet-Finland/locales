@@ -16,8 +16,16 @@ class locales::params {
             $generate_command = 'locale-gen'
         }
         'Ubuntu': {
-            $locales_file = '/var/lib/locales/supported.d/local'
-            $generate_command = 'dpkg-reconfigure locales'
+            case $::lsbdistcodename {
+                /(xenial)/: {
+                    $locales_file = '/etc/locale.gen'
+                    $generate_command = 'locale-gen'
+                }
+                default: {
+                    $locales_file = '/var/lib/locales/supported.d/local'
+                    $generate_command = 'dpkg-reconfigure locales'
+                }
+            }
         }
         default: {
             fail("Unsupported operating system ${::osfamily}")

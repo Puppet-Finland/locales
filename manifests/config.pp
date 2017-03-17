@@ -5,7 +5,7 @@
 #
 class locales::config
 (
-    $locales
+    Array[String] $locales
 
 ) inherits locales::params
 {

@@ -8,8 +8,8 @@
 # == Parameters
 #
 # [*manage*]
-#   Whether to manage locales with Puppet or not. Valid values are 'yes' 
-#   (default) and 'no'.
+#   Whether to manage locales with Puppet or not. Valid values are true
+#   (default) and false.
 # [*locales*]
 #   An array of locale lines to generate. Look at the "Examples" section to get 
 #   the idea. Defaults to ['en_US.UTF-8 UTF-8'].
@@ -34,12 +34,12 @@
 #
 class locales
 (
-    $manage = 'yes',
-    $locales = ['en_US.UTF-8 UTF-8']
+    Boolean $manage = true,
+            $locales = ['en_US.UTF-8 UTF-8']
 )
 {
 
-if $manage == 'yes' {
+if $manage {
 
     # We can use the same basic logic for all(?) Debian derivatives
     if $::osfamily == 'Debian' {
